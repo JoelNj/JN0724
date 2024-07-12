@@ -1,53 +1,38 @@
 package com.programmingdemojn0724.jn0724;
 
-import com.programmingdemojn0724.jn0724.domain.Customer;
-import com.programmingdemojn0724.jn0724.domain.Rental;
-import com.programmingdemojn0724.jn0724.domain.Tool;
-import com.programmingdemojn0724.jn0724.domain.ToolType;
-import com.programmingdemojn0724.jn0724.service.CustomerService;
-import com.programmingdemojn0724.jn0724.service.RentalService;
-import com.programmingdemojn0724.jn0724.service.ToolService;
-import com.programmingdemojn0724.jn0724.service.ToolTypeService;
+import com.programmingdemojn0724.jn0724.domain.*;
+//import com.programmingdemojn0724.jn0724.service.interfaces.*;
+
+import com.programmingdemojn0724.jn0724.service.ToolTypeServiceImpl;
+import com.programmingdemojn0724.jn0724.service.interfaces.customerservice;
+import com.programmingdemojn0724.jn0724.service.interfaces.rentalservice;
+import com.programmingdemojn0724.jn0724.service.interfaces.toolservice;
+import com.programmingdemojn0724.jn0724.service.interfaces.tooltypeservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.time.LocalDate;
-
 @SpringBootApplication
 public class Jn0724Application {
 
 	@Autowired
-	private ToolTypeService toolTypeService;
+	private tooltypeservice toolTypeService;
 	@Autowired
-	private ToolService toolService;
+	private toolservice toolService;
 	@Autowired
-	private CustomerService customerService;
+	private customerservice customerService;
 	@Autowired
-	private RentalService rentalService;
+	private rentalservice rentalService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Jn0724Application.class, args);
 	}
 
 	@Bean
-	public CommandLineRunner demo(ToolTypeService toolTypeService) {
+	public CommandLineRunner demo(ToolTypeServiceImpl toolTypeService) {
 		return args -> {
-
-			System.out.println("ToolType data");
-			System.out.println("----------------------------------");
-			for(ToolType t:toolTypeService.findAll()){
-				System.out.println(t);
-			}
-
-			System.out.println("----------------------------------");
-			System.out.println("Tool data");
-			System.out.println("----------------------------------");
-			for(Tool t: toolService.getAll()){
-				System.out.println(t);
-			}
 
 			System.out.println("----------------------------------");
 			System.out.println("Customer data");
@@ -55,23 +40,31 @@ public class Jn0724Application {
 			for(Customer c: customerService.getAll()){
 				System.out.println(c);
 			}
-
+			System.out.println("----------------------------------");
+			System.out.println("ToolType data");
+			System.out.println("----------------------------------");
+			for(ToolType t:toolTypeService.findAll()){
+				System.out.println(t);
+			}
+			System.out.println("----------------------------------");
+			System.out.println("Tool data");
+			System.out.println("----------------------------------");
+			for(Tool t: toolService.getAll()){
+				System.out.println(t);
+			}
 			System.out.println("----------------------------------");
 			System.out.println("Rental check out output ");
 			System.out.println("----------------------------------");
 			for(Rental r: rentalService.getAll()){
-
 				try{
-					System.out.println(r.checkOut());
+					RentalAgreement rentalAgreement = r.checkOut();
+					System.out.println(rentalAgreement.printValues());
 				}
 				catch(IllegalArgumentException ex){
 					System.out.println(ex.getMessage());
 				}
-
 			}
 			System.out.println("----------------------------------");
-
-
 		};
 	}
 

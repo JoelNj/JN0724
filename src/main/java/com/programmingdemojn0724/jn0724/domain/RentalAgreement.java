@@ -17,7 +17,8 @@ public class RentalAgreement {
 
     public String printValues(){
         String outPut="-----------------------------------";
-        String outPutFromReport =  "Tool code:\t"+ this.rental.getTool().getToolCode()+"\n"
+        String outPutFromReport = "Customer info:\t"+this.rental.getCustomer()+"\n"
+                +"Tool code:\t"+ this.rental.getTool().getToolCode()+"\n"
                 +"Tool type:\t"+this.rental.getTool().getToolType().getLabel()+"\n"
                 +"Tool Brand:\t"+this.rental.getTool().getBrand()+"\n"
                 +"Rental days count:\t"+this.rental.getRentalDayCount()+"\n"
@@ -55,7 +56,5 @@ public class RentalAgreement {
         return formattedNumber;
     }
 
-    public String toString(){
-        return this.printValues();
-    }
+
 }

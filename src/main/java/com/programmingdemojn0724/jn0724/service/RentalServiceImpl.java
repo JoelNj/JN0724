@@ -2,13 +2,14 @@ package com.programmingdemojn0724.jn0724.service;
 
 import com.programmingdemojn0724.jn0724.data.RentalRepository;
 import com.programmingdemojn0724.jn0724.domain.Rental;
+import com.programmingdemojn0724.jn0724.service.interfaces.rentalservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class RentalService {
+public class RentalServiceImpl implements rentalservice {
 
     @Autowired
     RentalRepository rentalRepository;

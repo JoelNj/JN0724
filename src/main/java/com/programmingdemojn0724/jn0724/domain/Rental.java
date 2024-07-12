@@ -31,7 +31,7 @@ public class Rental {
     }
 
     public RentalAgreement checkOut()throws IllegalArgumentException {
-        validateRentDays();
+        validateRentalDays();
         validateDiscount();
         return new RentalAgreement(this) ;
 
@@ -81,11 +81,12 @@ public class Rental {
         return date.equals(firstMondayOfSeptember);
     }
 
-    private void validateRentDays() throws IllegalArgumentException {
+    private void validateRentalDays() throws IllegalArgumentException {
         if (rentalDayCount < 1) {
             throw new IllegalArgumentException("Rental day count must be 1 or greater.");
         }
     }
+
 
     private void validateDiscount() throws IllegalArgumentException {
         if (rentalDiscountPercent < 0 || rentalDiscountPercent > 100) {
