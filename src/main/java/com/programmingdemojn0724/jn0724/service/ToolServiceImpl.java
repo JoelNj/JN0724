@@ -26,7 +26,4 @@ public class ToolService {
         return toolRepository.findAll();
     }
 
-    public void delete(){
-        toolRepository.deleteAll();
-    }
 }

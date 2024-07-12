@@ -15,16 +15,11 @@ public class ToolTypeService {
     public ToolType save(ToolType toolType){
         return toolTypeRepository.save(toolType);
     }
-
     public List<ToolType> findAll(){
         return toolTypeRepository.findAll();
     }
-
     public ToolType getOne(Long id){
         return toolTypeRepository.getOne(id);
     }
 
-    public void delete(){
-        toolTypeRepository.deleteAll();
-    }
 }

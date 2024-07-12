@@ -57,7 +57,7 @@ public class Jn0724Application {
 			}
 
 			System.out.println("----------------------------------");
-			System.out.println("Rental data");
+			System.out.println("Rental check out output ");
 			System.out.println("----------------------------------");
 			for(Rental r: rentalService.getAll()){
 

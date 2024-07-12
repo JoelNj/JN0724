@@ -24,7 +24,4 @@ public class RentalService {
         return rentalRepository.findAll();
     }
 
-    public void deleteAll(){
-        rentalRepository.deleteAll();
-    }
 }

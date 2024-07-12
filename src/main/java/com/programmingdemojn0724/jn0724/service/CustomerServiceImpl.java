@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CustomerService {
+public class CustomerServiceImplemented {
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -16,17 +16,13 @@ public class CustomerService {
     public Customer save(Customer customer){
         return customerRepository.save(customer);
     }
-
     public Customer getOne(Long id){
         return customerRepository.getById(id);
     }
-
     public List<Customer> getAll(){
         return customerRepository.findAll();
     }
 
-    public void deleteAll(){
-        customerRepository.deleteAll();
-    }
+
 
 }
