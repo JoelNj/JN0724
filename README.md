@@ -14,6 +14,7 @@ to see the output with the data saved in the database. Those data are the same w
 
 Test cases are written in the rentalServiceTest file and there is only two methods tested as you can see in that file .
 
+
 Thanks 
 
 
